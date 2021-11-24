@@ -1,19 +1,14 @@
-.App {
-  background-color: darkslategray;
-  color: white;
-  height: 500px;
-  width: 500px;
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
+:root {
+  --main-color: #f4a261;
+  --main-hover: rgb(250, 182, 36);
 }
 
-.main-btn {
-  border-radius: 999px;
-  background-color: rgb(246, 173, 15);
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main-container {
@@ -23,31 +18,93 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
   align-items: center;
-  width: 150px;
+  width: 160px;
 }
 
 .button-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  width: 100%;
+}
+
+@keyframes buttoncolor {
+  from {
+    opacity: 0;
+    width: 20px;
+  }
+
+  to{
+    opacity: 1;
+    width: 100%;
+  }
 }
 
 .button-list button {
-  background-color: rgb(246, 173, 15);
+  background-color: white;
   padding: 15px;
   border-radius: 10px;
-  border: none;
-  color: white;
+  border: 2px solid #222;
+  color: #222;
   font-weight: bold;
   cursor: pointer;
+  opacity: 0;
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: buttoncolor .6s forwards;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  filter: brightness(100%);
+  transition: border .3s;
+}
+
+.button-list button:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.button-list button:first-child {
+  animation-delay: .4s;
+}
+
+.button-list button:hover {
+  border: 2px solid var(--main-color);
+}
+
+.button-list button:active {
+  transform: translateY(2px);
 }
 
 .note {
-  background-color: #ece63d;
+  background-color: white;
   border: none;
-  border: 10px;
+  padding: 20px;
+  border-radius:0 0 0 30px/45px;
+  box-shadow:
+  inset 0 -5px 10px rgba(0,0,0,0.03),
+  inset 0 5px 15px rgba(0,0,0,0.03),
+  0 2px 3px 1px rgba(0,0,0,0.1);
+  font-family: 'Permanent Marker', cursive;
+  line-height:1.7em;
+  position: relative;
+}
+
+.note:focus {
+  outline: none;
+}
+
+.note-remind-me {
+  font-family: 'Permanent Marker', cursive;
+  background-color: var(--main-color);
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  color: white;
+  margin-top: 10px;
 }
 
 .note-container {
@@ -67,4 +124,107 @@
 
 .note-close:hover {
   color: red;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.flip {
+  height: 60px;
+  width: 100%;
+  perspective: 500px;
+}
+
+.flip button {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: .3s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front,
+.back {
+  margin: 0;
+  width: 160px;
+  height: 48px;
+  line-height: 48px;
+  position: absolute;
+  text-align: center;
+  letter-spacing: .4em;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+}
+
+.front {
+  background-color: white;
+  transform: rotateY(0) translateZ(24px);
+  color: #222;
+}
+
+.back {
+  background-color: rgba(white, .0);
+  color: rgba(#222, .0);
+  transform: rotateX(90deg) translateZ(24px);
+  overflow: hidden;
+}
+
+.back::after {
+  content: '';
+  position: absolute;
+  top: -32%;
+  left: -10%;
+  width: 120%;
+  height: 50%;
+  background: white;
+  transform: rotate(8deg);
+  transition: .5s;
+}
+
+.back::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 50%);
+  transform: scale(20, 20);
+  opacity: 0;
+  transition: transform 0.6s, opacity 1s;
+}
+
+.back:active::before {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+.flip button:hover {
+  transform: translateZ(-24px) rotateX(-90deg);
+}
+
+.flip button:hover .front {
+  background: white;
+  transition: .6s;
+}
+
+.flip button:hover .back {
+  color: white;
+  transition: color .4s linear;
+  background: var(--main-color);
+}
+
+.flip button:hover .back::after {
+  transform: rotate(6deg) translate(100px, -18px);
 }

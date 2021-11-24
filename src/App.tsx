@@ -23,7 +23,7 @@ export default function App() {
 
   const newNote: Inote = {
     id: Math.random(),
-    value: '',
+    value: 'Hi! This is your note speaking. feel free to edit this text and move me around. I promise to wait for you right where you left me :)',
     x: 50,
     y: 50,
   };
@@ -51,7 +51,7 @@ export default function App() {
       <div className='main-container'>
         {open && (
           <div className='button-list'>
-            <button onClick={() => {}}>Embedd a link</button>
+            <button onClick={() => { }}>Embedd a link</button>
             <button
               onClick={() => {
                 setNotes([...notes, newNote]);
@@ -59,12 +59,15 @@ export default function App() {
             >
               Add a note
             </button>
-            <button onClick={() => {}}>Surprise me</button>
+            <button onClick={() => { }}>Surprise me</button>
           </div>
         )}
-        <button className='main-btn' onClick={() => SetOpen(!open)}>
-          +
-        </button>
+        <div className="flip">
+          <button onClick={() => SetOpen(!open)}>
+            <div className="front">Get Noted!</div>
+            <div className="back">Get Noted!</div>
+          </button>
+        </div>
       </div>
       {notes.map((note: Inote, index: number) => {
         return (
