@@ -24,8 +24,8 @@ export default function App() {
           </>
         )}
       </div>
-      {notes.map((note: any) => {
-        return <Note />;
+      {notes.map((note: any, index: number) => {
+        return <Note key={index} />;
       })}
     </>
   );
