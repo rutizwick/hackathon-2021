@@ -1,0 +1,54 @@
+@keyframes name-of-animation {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes title-animation {
+  from {
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(253, 187, 45, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  50% {
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 42%,
+      rgba(253, 187, 45, 0.4556197478991597) 64%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  to {
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(253, 187, 45, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.title {
+  animation: title-animation 5s linear 2s infinite alternate;
+  font-size: 50px;
+}
+
+.message {
+  font-size: 25px;
+  font-style: italic;
+  animation: name-of-animation 5s infinite;
+}
