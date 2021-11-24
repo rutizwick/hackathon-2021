@@ -4,3 +4,67 @@
   height: 500px;
   width: 500px;
 }
+
+.main-btn {
+  border-radius: 999px;
+  background-color: rgb(246, 173, 15);
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.main-container {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 150px;
+}
+
+.button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-list button {
+  background-color: rgb(246, 173, 15);
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note {
+  background-color: #ece63d;
+  border: none;
+  border: 10px;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.note-close {
+  align-self: flex-end;
+  width: max-content;
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note-close:hover {
+  color: red;
+}
