@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Plus from './components/Plus';
+import Note from './components/Note';
 
 export default function App() {
-  return <Plus />;
+  const [open, SetOpen] = useState<boolean>(false);
+  const [notes, setNotes] = useState<any>([]);
+
+  return (
+    <>
+      <div>
+        <button onClick={() => SetOpen(!open)}>+</button>
+        {open && (
+          <>
+            <button onClick={() => {}}>Embedd a link</button>
+            <button
+              onClick={() => {
+                setNotes([...notes, 1]);
+              }}
+            >
+              Add a note
+            </button>
+            <button onClick={() => {}}>Surprise me</button>
+          </>
+        )}
+      </div>
+      {notes.map((note: any) => {
+        return <Note />;
+      })}
+    </>
+  );
 }
