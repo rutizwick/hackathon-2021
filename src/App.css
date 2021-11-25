@@ -11,6 +11,16 @@
   box-sizing: border-box;
 }
 
+.iframe-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.iframe-container img {
+  width: 100%;
+}
+
 .main-container {
   position: absolute;
   right: 20px;
@@ -21,6 +31,45 @@
   gap: 25px;
   align-items: center;
   width: 160px;
+}
+
+.embeddModal {
+  position: absolute;
+  background-color: rgb(247, 247, 247);
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 50%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  border: 2px solid #222;
+  padding: 50px;
+}
+
+.embeddModal input {
+  padding: 20px;
+  width: 100%;
+}
+
+.embeddModal input:focus {
+  outline: none;
+}
+
+.embeddModal button {
+  background-color: red;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .button-list {
