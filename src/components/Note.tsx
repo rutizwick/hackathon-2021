@@ -46,6 +46,7 @@ export default function Note({
           updateNotes({ id, value: e.target.value, x: xCor, y: yCor });
         }}
       />
+      <button className="note-remind-me">Remind me about this note!</button>
     </div>
   );
 }
